@@ -69,7 +69,6 @@ func createBill() bill {
 	name = strings.TrimSpace(name)
 
 	b := newBill(name)
-	b.updateTip(4)
 	fmt.Println("    ✓ Bill has been created - ", b.name)
 
 	return b
