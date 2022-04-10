@@ -71,7 +71,7 @@ func createBill() bill {
 	b := newBill(name)
 	fmt.Println("    ✓ Bill has been created - ", b.name)
 
-	return b
+	return *b
 }
 
 func main() {

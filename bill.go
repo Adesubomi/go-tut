@@ -11,14 +11,14 @@ type bill struct {
 	tip   float64
 }
 
-func newBill(name string) bill {
+func newBill(name string) *bill {
 	b := bill{
 		name:  name,
 		items: map[string]float64{},
 		tip:   0.00,
 	}
 
-	return b
+	return &b
 }
 
 func (b *bill) addItem(menu string, amount float64) {
@@ -46,10 +46,10 @@ func (b *bill) format() string {
 	return f
 }
 
-func (b *bill) save() {
+func (b bill) save() {
 
 	data := []byte(b.format())
-	err := os.WriteFile("bills/"+b.name+".txt", data, 0644)
+	err := os.WriteFile("./bills/"+b.name+".txt", data, 0644)
 
 	if err != nil {
 		panic(err)
